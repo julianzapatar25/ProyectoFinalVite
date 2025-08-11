@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect} from "react";
 
 const UserCard = ({user}) => {
     const [isContacted, setIsContacted] = useState(false);
@@ -11,7 +11,7 @@ const UserCard = ({user}) => {
         setAddress({ ...adress, street: 'Nueva Calle', number: 456 });
     }
 
-        console.log(adress);
+        //console.log(adress);
         return (
             <div className="card">
                 <img className="image" src={image} alt={name} />
