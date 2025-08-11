@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import UserCard from '../UserCard/UserCard.jsx';
 import userImg from "../../assets/usuario-contacto.png";
 import './Section.css';
 
@@ -16,7 +18,8 @@ const users = [
         description: 'Diseñadora gráfica',
         image: userImg
     },
-    {        id: 3,
+    {
+        id: 3,
         name: "Pedro",
         age: 28,
         description: 'Fotógrafo',
@@ -26,17 +29,18 @@ const users = [
 ]
 
 const Section = () => {
+
+    const [count, setCount] = useState(0);
+
+    console.log(count);
+
+   
     return (
         <section>
             {
-                users.map(user => {
+                users.map((user) => {
                     return (
-                        <div className= "card" key={user.id}>
-                            <img className= "image" src={user.image} alt={user.name} />
-                            <h2 className="name">{user.name}</h2>
-                            <p className="edad"> Edad: {user.age}</p>
-                            <p className="description"> Descripción: {user.description}</p>
-                        </div>
+                        <UserCard key={user.id} user={user}/>
                     )
                 })
 
