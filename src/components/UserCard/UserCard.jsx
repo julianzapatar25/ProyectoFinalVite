@@ -1,29 +1,36 @@
-import { useState, useEffect} from "react";
+import { useState, useRef } from "react";
 
-const UserCard = ({user}) => {
+const UserCard = ({ user }) => {
     const [isContacted, setIsContacted] = useState(false);
     const [adress, setAddress] = useState({ street: 'Calle Falsa', number: 123 });
-
-
-    const { id, name, age, description, image} = user;
+    const ref = useRef(0)
+    const { id, firstName, age, role, image } = user;
 
     const handLeClick = () => {
         setAddress({ ...adress, street: 'Nueva Calle', number: 456 });
     }
 
-        //console.log(adress);
-        return (
-            <div className="card">
-                <img className="image" src={image} alt={name} />
-                <h2 className="name">{name}</h2>
-                <p className="edad"> Edad: {age}</p>
-                <p className="description"> Descripción: {description}</p>
-                <button id={id} onClick={() => handLeClick()}>
-                    {
-                        isContacted ? "Contactado" : "Contactar"
-                    }
-                </button>
-            </div>
-        )
+    console.log('render');
+
+    const handLeIncreaseRef = () => {
+        ref.current++;
+        console.log(ref);
     }
+
+    //console.log(adress);
+    return (
+        <div className="card">
+            <img className="image" src={image} alt={firstName} />
+            <h2 className="name">{firstName}</h2>
+            <p className="edad"> Edad: {age}</p>
+            <p className="Rol"> {role}</p>
+            <button onClick={handLeIncreaseRef}> Aumentar Ref</button>
+            <button id={id} onClick={() => handLeClick()}>
+                {
+                    isContacted ? "Contactado" : "Contactar"
+                }
+            </button>
+        </div>
+    )
+}
 export default UserCard
