@@ -11,7 +11,7 @@ const Section = () => {
     const [users, setUsers] = useState([])
 
     useEffect(() => {
-        fetch(`https://dummyjson.com/users`)
+        fetch(`https://dummyjson.com/users?limit=4&skip=${count}`)
             .then(res => res.json())
             .then(data => {setUsers(data.users)
             })

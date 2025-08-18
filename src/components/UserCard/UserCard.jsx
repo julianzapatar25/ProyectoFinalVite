@@ -24,7 +24,7 @@ const UserCard = ({ user }) => {
             <h2 className="name">{firstName}</h2>
             <p className="edad"> Edad: {age}</p>
             <p className="Rol"> {role}</p>
-            <button onClick={handLeIncreaseRef}> Aumentar Ref</button>
+            <button onClick={handLeIncreaseRef}> Me gusta </button>
             <button id={id} onClick={() => handLeClick()}>
                 {
                     isContacted ? "Contactado" : "Contactar"

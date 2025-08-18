@@ -30,11 +30,40 @@
 
 /* Título */
 .header-title {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+  flex-grow: 1;
+  background: linear-gradient(90deg, #ff9800, #ff5722, #ff9800);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 3s linear infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+.header-title {
+  font-size: 1.8rem;
   font-weight: 600;
   margin: 0;
-  flex-grow: 1; /* Para ocupar espacio y empujar el nav */
+  flex-grow: 1;
+  color: #333;
+  animation: popIn 0.8s ease forwards;
 }
+
+@keyframes popIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+
+
+
 
 /* Navegación */
 .header-nav {
