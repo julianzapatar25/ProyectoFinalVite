@@ -1,20 +1,20 @@
-import './Header.css';
+import React from "react";
+import "./Header.css";
+import logo from "../../assets/Header.jpg";
 
-export const Header = ({children, tittle, show}) => {
+const Header = () => {
   return (
-    <header className="header">
-      <h1 className="tittle">{tittle || "Titulo por defecto"}</h1>
-      <nav>
-        <ul>
-          <li><a href="/">Inicio</a></li>
-          <li><a href="/about">Nosotros</a></li>
-          <li><a href="/contact">Contacto</a></li>
-        </ul>
+    <header className="header-center">
+      <img src={logo} alt="Logo" className="header-logo" />
+      <h1 className="header-title">Click & Like</h1>
+      <nav className="header-nav">
+        <a href="#">Inicio</a>
+        <a href="#">Servicios</a>
+        <a href="#">Portafolio</a>
+        <a href="#">Contacto</a>
       </nav>
-      {children}
-
-      {show &&
-        <p>Este texto se va a mostrar solo si el prop show es true</p>}
     </header>
   );
 };
+
+export default Header;

@@ -1,7 +1,51 @@
-.header {
-    background-color: #282c34;
-    padding: 20px;
-    color: white;
-    text-align: center;
-    font-size: 1.5em;
+:root {
+  --accent-color: #ff9800; /* Cambia aquí tu color corporativo */
 }
+
+.header-nav a:hover {
+  color: var(--accent-color);
+  transform: translateY(-2px);
+}
+
+
+/* ===== HEADER GENERAL ===== */
+.header-center {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #111; /* Fondo oscuro minimalista */
+  padding: 15px 30px;
+  color: #fff;
+  flex-wrap: wrap; /* Para que se ajuste en móviles */
+}
+
+/* Logo */
+.header-logo {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%; /* Redondeado moderno */
+  margin-right: 12px;
+}
+
+/* Título */
+.header-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  flex-grow: 1; /* Para ocupar espacio y empujar el nav */
+}
+
+/* Navegación */
+.header-nav {
+  display: flex;
+  gap: 20px;
+}
+
+.header-nav a {
+  text-decoration: none;
+  color: #ddd;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.2s
+};
