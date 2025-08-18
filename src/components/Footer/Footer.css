@@ -1,0 +1,107 @@
+.footer-container {
+  background-color: #1a1a1a; /* Fondo oscuro */
+  color: #ccc;
+  padding: 20px 0;
+  margin-top: 40px;
+}
+
+.footer {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Para móviles */
+  gap: 20px;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #444;
+  list-style: none;
+}
+
+.footer-item {
+  margin: 0;
+}
+
+.footer-link {
+  text-decoration: none;
+  color: #aaa;
+  font-size: 15px;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #fff; /* Efecto hover */
+}
+
+.footer-copy {
+  font-size: 14px;
+  color: #777;
+  margin-top: 10px;
+}
+@media (max-width: 600px) {
+  .footer-nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+.footer-container {
+  background: url("/images/footer-bg.jpg") no-repeat center center;
+  background-size: cover; /* que se ajuste */
+  color: #ccc;
+  padding: 20px 0;
+  margin-top: 40px;
+}
+.footer {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.6); /* Fondo semitransparente */
+  padding: 20px;
+  border-radius: 8px;
+}
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Para móviles */
+  gap: 20px;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #444;
+  list-style: none;
+}
+.footer-item {
+  margin: 0;
+}
+.footer-link {
+  text-decoration: none;
+  color: #aaa;
+  font-size: 15px;
+  transition: color 0.3s ease;
+}
+.footer-link:hover {
+  color: #fff; /* Efecto hover */
+  text-decoration: underline;
+}
+
+.footer-copy {
+  font-size: 14px;
+  color: #777;
+  margin-top: 10px;
+}
+
+@media (max-width: 600px) {
+  .footer-nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.footer-logo {
+  width: 100px; /* Ajusta el tamaño según sea necesario */
+  height: auto;
+  margin-bottom: 10px;
+}
