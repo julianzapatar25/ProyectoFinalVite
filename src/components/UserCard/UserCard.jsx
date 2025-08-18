@@ -1,36 +1,49 @@
 import { useState, useRef } from "react";
 
 const UserCard = ({ user }) => {
-    const [isContacted, setIsContacted] = useState(false);
-    const [adress, setAddress] = useState({ street: 'Calle Falsa', number: 123 });
-    const ref = useRef(0)
-    const { id, firstName, age, role, image } = user;
+  const [isContacted, setIsContacted] = useState(false);
+  const [email, setEmail] = useState("no-contacto@demo.com");
+  const [likes, setLikes] = useState(0);
+  const ref = useRef(0);
 
-    const handLeClick = () => {
-        setAddress({ ...adress, street: 'Nueva Calle', number: 456 });
+  const { id, firstName, age, role, image } = user;
+
+  // contador con ref + state
+  const handleIncreaseRef = () => {
+    ref.current++;
+    setLikes(likes + 1);
+    console.log("Ref interno:", ref.current);
+  };
+
+  // alterna contacto y cambia correo según el estado
+  const handleContactAndEmail = () => {
+    if (!isContacted) {
+      // Si no estaba contactado, lo contactamos y le damos un correo
+      setIsContacted(true);
+      setEmail(`${firstName.toLowerCase()}@empresa.com`);
+    } else {
+      // Si ya estaba contactado, revertimos al correo genérico
+      setIsContacted(false);
+      setEmail("no-contacto@demo.com");
     }
+  };
 
-    console.log('render');
+  return (
+    <div className="card">
+      <img className="image" src={image} alt={firstName} />
+      <h2 className="name">{firstName}</h2>
+      <p className="edad">Edad: {age}</p>
+      <p className="rol">{role}</p>
 
-    const handLeIncreaseRef = () => {
-        ref.current++;
-        console.log(ref);
-    }
+      <button onClick={handleIncreaseRef}>👍 Me gusta ({likes})</button>
 
-    //console.log(adress);
-    return (
-        <div className="card">
-            <img className="image" src={image} alt={firstName} />
-            <h2 className="name">{firstName}</h2>
-            <p className="edad"> Edad: {age}</p>
-            <p className="Rol"> {role}</p>
-            <button onClick={handLeIncreaseRef}> Me gusta </button>
-            <button id={id} onClick={() => handLeClick()}>
-                {
-                    isContacted ? "Contactado" : "Contactar"
-                }
-            </button>
-        </div>
-    )
-}
-export default UserCard
+      <button id={id} onClick={handleContactAndEmail}>
+        {isContacted ? "Contactado" : "Contactar"}
+      </button>
+
+      <p className="correo">📧 {email}</p>
+    </div>
+  );
+};
+
+export default UserCard;

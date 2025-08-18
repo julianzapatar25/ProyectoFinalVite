@@ -1,41 +1,37 @@
 import { useState, useEffect } from 'react'
-import  UserCard  from '../UserCard/UserCard.jsx'
+import UserCard from '../UserCard/UserCard.jsx'
 import './Section.css'
 
-
-
 const Section = () => {
+  const [count, setCount] = useState(1)
+  const [users, setUsers] = useState([])
 
-    const [count, setCount] = useState(1)
-    const [likes, setLikes] = useState(0)
-    const [users, setUsers] = useState([])
+  useEffect(() => {
+    fetch(`https://dummyjson.com/users?limit=4&skip=${count}`)
+      .then(res => res.json())
+      .then(data => {
+        setUsers(data.users)
+      })
+  }, [count])
 
-    useEffect(() => {
-        fetch(`https://dummyjson.com/users?limit=4&skip=${count}`)
-            .then(res => res.json())
-            .then(data => {setUsers(data.users)
-            })
+  const handleNext = () => setCount(count + 1)
+  const handlePrev = () => setCount(count > 1 ? count - 1 : 1)
 
-    }, [count])
+  return (
+    <>
+      <div className="section-controls">
+        <button onClick={handlePrev}>Atrás</button>
+        <h2>{count}</h2>
+        <button onClick={handleNext}>Siguiente</button>
+      </div>
 
-    const handleClick = () => setCount(count + 1);
-    const handleLikes = () => setLikes(likes + 1);
-
-
-    return (
-        <>
-            <h2>{count}</h2>
-            <button onClick={handleClick}>Suguiente</button>
-            <h2>{likes}</h2>
-            <button onClick={handleLikes}>Likes</button>
-            <section>
-                {
-                    users.map(user => <UserCard key={user.id} user={user} />)
-                }
-
-            </section>
-        </>
-    )
+      <section>
+        {users.map(user => (
+          <UserCard key={user.id} user={user} />
+        ))}
+      </section>
+    </>
+  )
 }
 
 export default Section
